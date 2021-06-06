@@ -1,0 +1,194 @@
+﻿<Page x:Class="OOOPolomka.PageClients.PageListClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OOOPolomka.PageClients"
+      mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      d:DesignHeight="450" d:DesignWidth="1050"
+      Title="Список клиентов">
+    <!-- Страница отображения списка клиентов -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="Количество записей на странице:"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <ComboBox Name="ListColBox" 
+                          Margin="5,0,0,0"
+                          Width="200" Height="30"
+                          VerticalAlignment="Center"
+                          SelectedIndex="3"
+                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CbDefaultStyle}">
+                    <ComboBoxItem Content="10 записей"/>
+                    <ComboBoxItem Content="50 записей"/>
+                    <ComboBoxItem Content="200 записей"/>
+                    <ComboBoxItem Content="Все записи"/>
+                </ComboBox>
+                <TextBlock Text="Пол:"
+                           Margin="20,0,0,0"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <ComboBox Name="ListGenderBox" 
+                          Margin="5,0,0,0"
+                          Width="200" Height="30"
+                          VerticalAlignment="Center"
+                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CbDefaultStyle}"
+                          SelectionChanged="ListGenderBox_SelectionChanged">
+                </ComboBox>
+                <TextBlock Text="Сортировать по:" 
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}" 
+                           Margin="20,0,0,0"/>
+                <ComboBox Name="ListSortBox" 
+                          Margin="5,0,0,0"
+                          Width="200" Height="30"
+                          VerticalAlignment="Center"
+                          VerticalContentAlignment="Center"
+                          Style="{StaticResource CbDefaultStyle}" 
+                          SelectionChanged="ListSortBox_SelectionChanged">
+                    <ComboBoxItem Content="По алфавиту"/>
+                    <ComboBoxItem Content="По количеству посещений"/>
+                    <ComboBoxItem Content="По дате последнего посещения"/>
+                    <ComboBoxItem Content="Без сортировки"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1">
+                <TextBlock Text="ФИО:"
+                           Margin="8 0 0 0"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <TextBox Name="TbSearchFIO" 
+                         Margin="10,3,10,3" 
+                         Width="170"
+                         HorizontalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TbDefaultStyle}"
+                         TextChanged="TbSearchFIO_TextChanged"/>
+                <TextBlock Text="Email:"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <TextBox Name="TbSearchEmail" 
+                         Margin="10,3,10,3" 
+                         Width="170"
+                         HorizontalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TbDefaultStyle}"
+                         TextChanged="TbSearchEmail_TextChanged"/>
+                <TextBlock Text="Phone:"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource TxbDefaultStyle}"/>
+                <TextBox Name="TbSearchPhone" 
+                         Margin="10,3,0,3" 
+                         Width="170"
+                         HorizontalAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Style="{StaticResource TbDefaultStyle}"
+                         TextChanged="TbSearchPhone_TextChanged"/>
+                <CheckBox Content="День рождения в текущем месяце"
+                          Name="CheckBirthDate"
+                          Style="{StaticResource CheckDefaultStyle}"
+                          VerticalAlignment="Center"
+                          Margin="20 0 10 0"
+                          IsChecked="False"
+                          Checked="CheckBirthDate_Checked"
+                          Unchecked="CheckBirthDate_Unchecked"/>
+                <Button Name="SearchClearBtn" Content="Сбросить"
+                        Style="{StaticResource BtDefaultStyle}"
+                        Width="100"
+                        Height="30" 
+                        Click="SearchClearBtn_Click"/>
+            </StackPanel>
+        </Grid>
+        <ListView 
+            x:Name="lvClients"
+            Grid.Row="1"
+            ItemsSource="{Binding ClientList}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="ID"
+                                        DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Gender"
+                                        DisplayMemberBinding="{Binding Gender}"/>
+                        <GridViewColumn Header="FIO"
+                                        DisplayMemberBinding="{Binding FLP}"/>
+                        <GridViewColumn Header="Birthday"
+                                        DisplayMemberBinding="{Binding Birthday,
+                                        StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                        <GridViewColumn Header="Phone"
+                                        DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Header="Email"
+                                        DisplayMemberBinding="{Binding Email}"/>
+                        <GridViewColumn Header="Registration date"
+                                        DisplayMemberBinding="{Binding Registration_date,
+                                        StringFormat='{}{0:dd.MM.yyyy}'}"/>
+                        <GridViewColumn Header="Date of last visit"
+                                        DisplayMemberBinding="{Binding Date_of_last_visit}"/>
+                        <GridViewColumn Header="Visit count"
+                                        DisplayMemberBinding="{Binding Visit_count}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Button Name="DeleteClient" Content="Удалить"
+                    Width="100"
+                    HorizontalAlignment="Left"
+                    Margin="10, 5,0,5"
+                    Style="{StaticResource BtDefaultStyle}"
+                    Click="DeleteClient_Click"/>
+                <Button Name="EditClient" Content="Редактировать"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="10, 5,0,5"
+                    Style="{StaticResource BtDefaultStyle}" Click="EditClient_Click"/>
+                <Button Name="AddClient" Content="Добавить нового клиента"
+                    Width="150"
+                    HorizontalAlignment="Left"
+                    Margin="10, 5,0,5"
+                    Style="{StaticResource BtDefaultStyle}" Click="AddClient_Click"/>
+                <Button Name="ClientVisitList" Content="Посещения клиента"
+                    Width="120"
+                    HorizontalAlignment="Left"
+                    Margin="10, 5,0,5"
+                    Style="{StaticResource BtDefaultStyle}" Click="ClientVisitList_Click"/>
+                <Button Name="ClientPhotoList" Content="Списко клиентов с фото"
+                    Width="150"
+                    HorizontalAlignment="Left"
+                    Margin="10, 5,0,5"
+                    Style="{StaticResource BtDefaultStyle}" Click="ClientPhotoList_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                    Grid.Column="1">
+                <Button Name="BackData" Content="Предыдущая страница"
+                    Style="{StaticResource BtDefaultStyle}" Margin="0,5,0,5"/>
+                <TextBlock Name="TbColData" Width="20" Margin="15,0,0,0"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource TxbDefaultStyle}"/>
+                <Button Name="NextData" Margin="15,5,20,5" Content="Следующая страница"
+                    Style="{StaticResource BtDefaultStyle}"/>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

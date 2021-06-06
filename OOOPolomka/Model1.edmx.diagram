@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e2e013d64b249f8866f8044340950bb" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Client" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="Model.ClientService" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="Model.DocumentByService" Width="1.5" PointX="5.25" PointY="9.625" />
+        <EntityTypeShape EntityType="Model.Gender" Width="1.5" PointX="1.5" PointY="15.5" />
+        <EntityTypeShape EntityType="Model.Manufacturer" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="Model.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="Model.ProductSale" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="Model.Service" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="Model.ServicePhoto" Width="1.5" PointX="3" PointY="18.5" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Tag" Width="1.5" PointX="3" PointY="6.375" />
+        <EntityTypeShape EntityType="Model.ViewClientService" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.VwClients" Width="1.5" PointX="7.75" PointY="6.75" />
+        <AssociationConnector Association="Model.FK_Client_Gender" />
+        <AssociationConnector Association="Model.FK_ClientService_Client" />
+        <AssociationConnector Association="Model.FK_ClientService_Service" />
+        <AssociationConnector Association="Model.FK_DocumentByService_ClientService" />
+        <AssociationConnector Association="Model.FK_ProductSale_ClientService" />
+        <AssociationConnector Association="Model.FK_Product_Manufacturer" />
+        <AssociationConnector Association="Model.FK_ProductPhoto_Product" />
+        <AssociationConnector Association="Model.FK_ProductSale_Product" />
+        <AssociationConnector Association="Model.FK_ServicePhoto_Service" />
+        <AssociationConnector Association="Model.AttachedProduct" />
+        <AssociationConnector Association="Model.TagOfClient" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,151 @@
+﻿<Page x:Class="OOOPolomka.PageClients.PageEditClients"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OOOPolomka.PageClients"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1050"
+      Title="Добавление/редактирование клиента">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="450*"/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="350*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                    VerticalAlignment="Center">
+            
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="175*"/>
+                    <ColumnDefinition Width="175*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="ID:" Grid.Row="0" HorizontalAlignment="Right"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       />
+                <TextBlock Text="Фамилия:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="1" Grid.Column="0"/>
+                <TextBlock Text="Имя:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="2" Grid.Column="0"/>
+                <TextBlock Text="Отчество:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="3" Grid.Column="0"/>
+                <TextBlock Text="Email:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="4" Grid.Column="0"/>
+                <TextBlock Text="Телефон:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="5" Grid.Column="0"/>
+                <TextBlock Text="Дата рождения:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="6" Grid.Column="0"/>
+                <TextBlock Text="Пол:"
+                       Style="{StaticResource TxbDefaultStyle}"
+                       HorizontalAlignment="Right"
+                           Margin="0,5,0,0"
+                           Grid.Row="7" Grid.Column="0"/>
+                <TextBox Name="TbID" IsReadOnly="True" 
+                     Width="150" HorizontalAlignment="Left"
+                         Margin="5,0,0,0" 
+                     Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="0" Grid.Column="1"/>
+                <TextBox Name="TbLastName" 
+                     Width="150" HorizontalAlignment="Left"
+                         Margin="5,5,0,0" MaxLength="50"
+                     Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="1" Grid.Column="1"/>
+                <TextBox Name="TbFirstName"  
+                     Width="150" HorizontalAlignment="Left" MaxLength="50"
+                         Margin="5,5,0,0"
+                         Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="2" Grid.Column="1"/>
+                <TextBox Name="TbMiddleName" 
+                     Width="150" HorizontalAlignment="Left" MaxLength="50"
+                         Margin="5,5,0,0"
+                     Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="3" Grid.Column="1"/>
+                <TextBox Name="TbEmail"  
+                     Width="150" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="4" Grid.Column="1"/>
+                <TextBox Name="TbPhone"  
+                     Width="150" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                     Style="{StaticResource TbDefaultStyle}"
+                         Grid.Row="5" Grid.Column="1"/>
+                <DatePicker Name="DpDateBirth"  
+                     Width="200" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                         Style="{StaticResource DateDefaultStyle}"
+                         Grid.Row="6" Grid.Column="1"/>
+                <ComboBox Name="CbGender"  
+                     Width="100" HorizontalAlignment="Left"
+                         Margin="5,5,0,0"
+                    Style="{StaticResource CbDefaultStyle}"
+                         Grid.Row="7" Grid.Column="1">
+                    <ComboBoxItem Content="Мужской"/>
+                    <ComboBoxItem Content="Женский"/>
+                </ComboBox>
+                <Button Name="BtEditClient" Grid.Column="1"
+                        Grid.Row="8" Margin="5" Width="100"
+                        Height="30" Content="Сохранить"
+                        HorizontalAlignment="Left"
+                        Style="{StaticResource BtDefaultStyle}"
+                        Click="BtEditClient_Click"
+                        />
+                <Button Name="BtCancle" Grid.Column="0"
+                        Grid.Row="8" Margin="5" Width="100"
+                        Height="30" Content="Отменить"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource BtDefaultStyle}"
+                        Click="BtCancle_Click"
+                        />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2"
+                    Orientation="Vertical" HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1">
+                <Image x:Name="ClientPhoto" Width="150" Height="150" Stretch="Fill">
+                    
+                </Image>
+            </Border>
+            <Button Name="EditPhoto" Margin="0,10,0,0"
+                    Height="30" Content="Изменить"
+                    Style="{StaticResource BtDefaultStyle}" Click="EditPhoto_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Page>
